@@ -20,7 +20,7 @@ def _guess_and_convert_with(value, detector=cchardet):
 
     The detector is either chardet or cchardet module.
     """
-    charset = detector.detect(value)
+    charset = detector.detect(value[:10240])
 
     if not charset["encoding"]:
         raise errors.DecodingError("Failed to guess encoding")
