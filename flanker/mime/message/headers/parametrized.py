@@ -110,7 +110,8 @@ def concatenate(parts):
     elif is_single_part(part):
         return decode_new_style(part)
     else:
-        return ''.join(decode_new_style(p) for p in partition(parts))
+        splitted_parts = (part for part in parts if not is_single_part(part))
+        return ''.join(decode_new_style(p) for p in partition(splitted_parts))
 
 
 def match_parameter(rest):

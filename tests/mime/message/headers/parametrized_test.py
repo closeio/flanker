@@ -71,3 +71,4 @@ def content_type_param_with_spaces_test():
 
 def content_type_same_param_name_encoded_unencoded_test():
     eq_(('application/pdf', {'name': '30676_2015.pdf'}), parametrized.decode("application/pdf; name=30676_2015.pdf;name*=iso-8859-1''%33%30%36%37%36%5F%32%30%31%35%2E%70%64%66"))
+    eq_(('application/pdf', {'name': '30676_2015.pdf'}), parametrized.decode("application/pdf; name*0*=iso-8859-1''%33%30%36%37%36%5F%32%30%31%35%2E%70%64%66;name=30676_2015.pdf"))
